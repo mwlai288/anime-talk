@@ -5,11 +5,9 @@ class Api::AnimesController < ApplicationController
     end
 
     def show
-        @animes = AnimeList.find(params[:id])
-        @posts = @animes.posts
+        @animes = Anime.find(params[:id])
         render json: {
-            animes: @anime,
-            posts: @posts
+            animes: @animes
         }
     end
 end
