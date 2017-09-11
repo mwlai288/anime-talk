@@ -40,11 +40,11 @@ class AnimeSearch extends Component {
                     <h3>Animes:</h3>
                     {this.state.animes.map( (anime) => {
                     return (
-                        {/* <key={movie.id} movie={movie} /> */}
+                        {/* <key={anime.id} anime={anime}/>  */}
                     )
                     })}
                 </form>
-                <Link to={`/animes/${id}`}><button>Back</button></Link>
+                <Link to={`/animes/${id}`}><button>Go to</button></Link>
             </div>
         );
     }

@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Anime.destroy_all
+Post.destroy_all
+
+
+
+attackontitan = Anime.create(title:'Attack on Titan', plot: 'test test test everyone diees', poster:'https://images-na.ssl-images-amazon.com/images/M/MV5BMTY5ODk1NzUyMl5BMl5BanBnXkFtZTgwMjUyNzEyMTE@._V1_SX300.jpg')
+Post.create(comment: 'good show cool cool cool')
