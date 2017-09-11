@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import AnimeSearch from './components/AnimeSearch';
 import AnimeList from "./components/AnimeList";
 import Anime from "./components/Anime";
+
 
 class App extends Component {
   render() {
@@ -13,12 +13,11 @@ class App extends Component {
             <h1>Anime Talk</h1>
             <div>
               <Link to="/">Anime</Link>
-              <Link to="/anime/1">Single Anime</Link>
+              <Link to="/artist/2">Single Anime</Link>
             </div>
           </div>
           <Route exact path="/" component={AnimeList} />
-          <Route exact path="/animes/:id" component={Anime} />
-          <Route exact path="/anime/:id/search" component={AnimeSearch} />
+          <Route path="/animes/:id" component={Anime} />
         </div>
       </Router>
     );

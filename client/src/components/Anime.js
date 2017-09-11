@@ -4,7 +4,7 @@ class Anime extends Component {
     render() {
         return (
             <div>
-                Hello from Anime
+                <h1>Hello from Show Anime</h1>
             </div>
         );
     }
