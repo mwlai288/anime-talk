@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import AnimeSearch from './components/AnimeSearch';
 import AnimeList from "./components/AnimeList";
 import Anime from "./components/Anime";
 
@@ -16,7 +17,8 @@ class App extends Component {
             </div>
           </div>
           <Route exact path="/" component={AnimeList} />
-          <Route path="/anime/:id" component={Anime} />
+          <Route exact path="/animes/:id" component={Anime} />
+          <Route exact path="/anime/:id/search" component={AnimeSearch} />
         </div>
       </Router>
     );
