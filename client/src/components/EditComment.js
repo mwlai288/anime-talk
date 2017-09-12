@@ -2,13 +2,29 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-class AddComments extends Component {
+class EditComment extends Component {
     constructor() {
         super();
         this.state = {
             posts: {
-                comment: '',
+                comment: ''
             }
+        }
+    }
+
+    // componentWillMount() {
+    //     this._AddComment()
+    // }
+    
+    _fetchAddComment = async () => {
+        const id = this.props.match.params.id
+        try {
+            const res = await axios.get(`/api/posts/${id}`);
+            await this.setState({posts: res.data.posts});
+            return res.data;
+        }
+        catch (err) {
+            console.log(err)
         }
     }
 
@@ -18,33 +34,33 @@ class AddComments extends Component {
         this.setState({posts: newState})
     }
 
-
-    _newComment = (e) => {
+    _EditComment = (e) => {
         e.preventDefault();
+        const id = this.props.match.params.id
         const payload = this.state.posts
         try {
-            const res = axios.post(`/api/animes/:id/posts`, payload)
+            const res = axios.patch(`/api/posts/${id}`, payload)
         } catch (err) {
             console.log(err)
         }
     }
 
     render() {
+        const id = this.state.posts.id
         return (
             <div>
                 <form>
                     <div>
-                        <label htmlFor="comment">Comment Below </label>
-                      
+                        <label htmlFor="edit">Edit Comment: </label>
                         <input onChange={this._handleChange} type="text" name="comment" value={this.state.posts.comment} />
                     </div>
-                    <button onClick={this._newComment}>Submit</button>
+                    <button onClick={this._EditComment}>Submit</button>
                 </form>
                 <br />
-                
+                <Link to={`/posts/${id}`}><button>Back</button></Link>
             </div>
         );
     }
 }
 
-export default AddComments;
+export default EditComment;

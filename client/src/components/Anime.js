@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import AddComments from './AddComments';
+import EditComment from './EditComment';
 
 class Anime extends Component {
     constructor(){
@@ -33,11 +34,13 @@ class Anime extends Component {
         return (
             <div>
                 <h1>{this.state.animes.title}</h1>
-                <h3>{this.state.animes.plot}</h3>
+                <h3>Plot: </h3> 
+                <p>{this.state.animes.plot}</p>
               <img src={this.state.animes.poster} alt=''/>
               <div>{this.state.animes.comment}</div>
 
               <AddComments />
+              <EditComment />
             </div>
         );
     }
