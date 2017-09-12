@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import AnimeList from "./components/AnimeList";
 import Anime from "./components/Anime";
+import AddComments from './components/AddComments';
+import EditComment from './components/EditComment'
 
 
 class App extends Component {
@@ -16,7 +18,9 @@ class App extends Component {
             </div>
           </div>
           <Route exact path="/" component={AnimeList} />
-          <Route path="/anime/:id" component={Anime} />
+          <Route exact path="/anime/:id" component={Anime} />
+          <Route exact path="/anime/:id/posts" component={AddComments} />
+          <Route exact path="/anime/:id/posts/edit" component={EditComment} />
         </div>
       </Router>
     );

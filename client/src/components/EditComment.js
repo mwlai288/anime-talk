@@ -19,9 +19,9 @@ class EditComment extends Component {
     _fetchAddComment = async () => {
         const id = this.props.match.params.id
         try {
-            const res = await axios.get(`/api/posts/${id}`);
-            await this.setState({posts: res.data.posts});
-            return res.data;
+            const response = await axios.get(`/api/posts/${id}`);
+            await this.setState({posts: response.data.posts});
+            return response.data;
         }
         catch (err) {
             console.log(err)
@@ -57,7 +57,7 @@ class EditComment extends Component {
                     <button onClick={this._EditComment}>Submit</button>
                 </form>
                 <br />
-                <Link to={`/posts/${id}`}><button>Back</button></Link>
+                <Link to={'/anime/:id'}><button>Back</button></Link>
             </div>
         );
     }

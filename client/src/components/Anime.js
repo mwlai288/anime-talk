@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 import AddComments from './AddComments';
 import EditComment from './EditComment';
+import Comments from './Comments';
 
 class Anime extends Component {
     constructor(){
@@ -31,16 +33,16 @@ class Anime extends Component {
         }
     }
     render() {
+        const id = this.props.match.params.id        
         return (
             <div>
-                <h1>{this.state.animes.title}</h1>
-                <h3>Plot: </h3> 
-                <p>{this.state.animes.plot}</p>
+              <h1>{this.state.animes.title}</h1>
+              <h3>Plot: </h3> 
+              <p>{this.state.animes.plot}</p>
               <img src={this.state.animes.poster} alt=''/>
               <div>{this.state.animes.comment}</div>
-
-              <AddComments />
-              <EditComment />
+            <Link to={`/anime/${id}/posts`}>Add a comment</Link>
+              {/* <Comments /> */}
             </div>
         );
     }

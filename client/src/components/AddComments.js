@@ -7,11 +7,10 @@ class AddComments extends Component {
         super();
         this.state = {
             posts: {
-                comment: '',
+                comment: ''
             }
         }
     }
-
     _handleChange = (e) => {
         const newState = {...this.state.posts}
         newState[e.target.name] = e.target.value
@@ -22,8 +21,10 @@ class AddComments extends Component {
     _newComment = (e) => {
         e.preventDefault();
         const payload = this.state.posts
+        const id = this.props.match.params.id
+        console.log(payload)
         try {
-            const res = axios.post(`/api/animes/:id/posts`, payload)
+            const res = axios.post(`/api/animes/${id}/posts`, payload)
         } catch (err) {
             console.log(err)
         }
@@ -34,8 +35,9 @@ class AddComments extends Component {
             <div>
                 <form>
                     <div>
+                        
                         <label htmlFor="comment">Comment Below </label>
-                      
+                      <p>{this.state.posts.comment}</p>
                         <input onChange={this._handleChange} type="text" name="comment" value={this.state.posts.comment} />
                     </div>
                     <button onClick={this._newComment}>Submit</button>
