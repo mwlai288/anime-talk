@@ -1,21 +1,21 @@
 class Api::PostsController < ApplicationController
     def index
-         @animes = Anime.find(params[:anime_id])
-         @posts = @anime.posts.all
+         @anime = Anime.find(params[:anime_id])
+         @posts = @anime.posts
          render json: @posts
     end
 
     def show
-        @animes = Anime.find(params[:anime_id])
+        @anime = Anime.find(params[:anime_id])
         @post= Post.find(params[:id])
-        render json: @posts
+        render json: @post
     end
 
    def create
     @animes = Anime.find(params[:anime_id])
     @post = @animes.posts.new(post_params)
         if @post.save
-        render json: @posts
+        render json: @post
         else
         render json: {
            message: "error creating post"
@@ -24,30 +24,30 @@ class Api::PostsController < ApplicationController
     end
 
     def destroy
-        @animes = Anime.find(params[:anime_id])
-        @posts = @animes.posts.find(params[:id])
-        @posts.destroy
+        @anime = Anime.find(params[:anime_id])
+        @post = @anime.posts.find(params[:id])
+        @post.destroy
         render json: {
           message: 'Post successfully deleted'
         }
       end
 
     def new
-        @animes = Anime.find(params[:anime_id])
-        @posts = @animes.posts.new
+        @anime = Anime.find(params[:anime_id])
+        @post = @anime.posts.new
     end
 
     def edit
-        @animes = Anime.find(params[:anime_id])
-        @posts = Post.find(params[:id])
+        @anime = Anime.find(params[:anime_id])
+        @post = Post.find(params[:id])
     end
 
     def update
-        @animes = Anime.find(params[:anime_id])
-        @posts = Post.find(params[:id])
-        @posts.update(post_params)
+        @anime = Anime.find(params[:anime_id])
+        @post = Post.find(params[:id])
+        @post.update(post_params)
     
-        redirect_to anime_post_path(@animes, @post)
+        redirect_to anime_post_path(@anime, @post)
     end
     
 
