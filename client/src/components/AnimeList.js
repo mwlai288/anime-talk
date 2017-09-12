@@ -38,7 +38,7 @@ class AnimeList extends Component {
         <h1>Select an Anime</h1>
         {this.state.animes.map(anime => (
           <div key={anime.id}>
-            <Link to={`/anime/${anime.id}`} >{anime.title}</Link> 
+            <Link to={`/anime/${anime.id}`}>{anime.title}</Link> 
           </div>
         ))}
       </div>

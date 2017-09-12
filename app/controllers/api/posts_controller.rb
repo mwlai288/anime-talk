@@ -9,7 +9,7 @@ class Api::PostsController < ApplicationController
         @anime = Anime.find(params[:anime_id])
         @post= Post.find(params[:id])
         render json: @post
-    end
+    end 
 
    def create
     @animes = Anime.find(params[:anime_id])

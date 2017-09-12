@@ -31,6 +31,7 @@ class AddComments extends Component {
     }
 
     render() {
+        const id = this.props.match.params.id        
         return (
             <div>
                 <form>
@@ -43,8 +44,8 @@ class AddComments extends Component {
                     <button onClick={this._newComment}>Submit</button>
                 </form>
                 <br />
-                
-            </div>
+                <Link to={`/anime/${id}`}><button>Back</button></Link>
+                </div>
         );
     }
 }
