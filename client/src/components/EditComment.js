@@ -12,9 +12,6 @@ class EditComment extends Component {
         }
     }
 
-    // componentWillMount() {
-    //     this._AddComment()
-    // }
     
     _fetchAddComment = async () => {
         const id = this.props.match.params.id
@@ -57,7 +54,7 @@ class EditComment extends Component {
                     <button onClick={this._EditComment}>Submit</button>
                 </form>
                 <br />
-                <Link to={'/anime/:id'}><button>Back</button></Link>
+                <Link to={`/anime/${id}`}><button>Back</button></Link>
             </div>
         );
     }
