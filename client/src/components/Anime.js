@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
+import DeletePost from './DeletePost'
 
 import EditComment from './EditComment';
 // import posts.Comments from './Comments';
@@ -46,8 +47,6 @@ class Anime extends Component {
         await this.setState({error: err.message})
     }
 }
-
-
     render() {
         const id = this.props.match.params.id    
         return (
@@ -58,7 +57,8 @@ class Anime extends Component {
               <img src={this.state.animes.poster} alt=''/>
               {this.state.posts.map((post, i) => {
                 return <div index ={i}> {post.comment} 
-                <Link to={`/anime/${id}/posts/${post.id}/edit`}>Edit comment</Link>
+                <Link to={`/anime/${id}/posts/${post.id}/edit`}><button>Edit comment</button></Link>
+                <DeletePost animeId = {this.props.match.params.id} postId = {post.id}/>
              </div> 
               })} 
               <Link to={`/anime/${id}/posts`}>Add a comment</Link>
