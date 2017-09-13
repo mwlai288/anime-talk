@@ -40,6 +40,6 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'pry-byebug', '3.4.0'
-gem 'pry-rails', '0.3.4'
-gem 'pry-stack_explorer', '0.4.9.2'
+gem 'devise'
+gem 'omniauth'
+gem 'devise_token_auth'
