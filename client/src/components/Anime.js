@@ -61,7 +61,7 @@ class Anime extends Component {
                 <DeletePost animeId = {this.props.match.params.id} postId = {post.id}/>
              </div> 
               })} 
-              <Link to={`/anime/${id}/posts`}>Add a comment</Link>
+              <Link to={`/anime/${id}/posts`}><button>Add a comment</button></Link>
               
             </div>
         );

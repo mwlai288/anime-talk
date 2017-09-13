@@ -8,7 +8,7 @@ class componentName extends Component {
     const postsId = this.props.postId
     console.log(`/api/animes/${animeId}/posts/${postsId}`)
     const response = await axios.delete(`/api/animes/${animeId}/posts/${postsId}`)
-    this.setState({posts: response.posts})
+    await this.setState({posts: response.posts})
 }
   render() {
 
