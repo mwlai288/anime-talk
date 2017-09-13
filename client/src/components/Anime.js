@@ -58,9 +58,11 @@ class Anime extends Component {
               <img src={this.state.animes.poster} alt=''/>
               {this.state.posts.map((post, i) => {
                 return <div index ={i}> {post.comment} 
+                <Link to={`/anime/${id}/posts/${id}/edit`}>Edit comment</Link>
              </div> 
               })} 
               <Link to={`/anime/${id}/posts`}>Add a comment</Link>
+              
             </div>
         );
     }
