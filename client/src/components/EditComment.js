@@ -20,17 +20,17 @@ class EditComment extends Component {
 
     _editComment = (e) => {
         e.preventDefault();
-        const id = this.props.match.params.id
+        const { animeId, id } = this.props.match.params
         const payload = this.state.posts
         try {
-            const res = axios.patch(`/api/animes/${id}/posts/${id}`, payload)
+            const res = axios.patch(`/api/animes/${animeId}/posts/${id}`, payload)
         } catch (err) {
             console.log(err)
         }
     }
 
     render() {
-        const id = this.props.match.params.id        
+        const { animeId, id } = this.props.match.params     
         return (
             <div>
                 <form>
@@ -41,7 +41,7 @@ class EditComment extends Component {
                     <button onClick={this._editComment}>Submit</button>
                 </form>
                 <br />
-                <Link to={`/anime/${id}`}><button>Back</button></Link>
+                <Link to={`/anime/${animeId}`}><button>Back</button></Link>
             </div>
         );
     }

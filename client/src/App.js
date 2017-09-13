@@ -20,7 +20,7 @@ class App extends Component {
           <Route exact path="/" component={AnimeList} />
           <Route exact path="/anime/:id" component={Anime} />
           <Route exact path="/anime/:id/posts" component={AddComments} />
-          <Route exact path="/anime/:id/posts/:id/edit" component={EditComment} />
+          <Route exact path="/anime/:animeId/posts/:id/edit" component={EditComment} />
         </div>
       </Router>
     );
