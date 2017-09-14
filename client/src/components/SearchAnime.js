@@ -38,9 +38,9 @@ class SearchAnime extends Component {
 _addAnime = (anime) => {
   const id = this.props.match.params.id
   const payload ={
-    title: anime.title,
-    plot: anime.plot,
-    poster: anime.poster
+    title: anime.Title,
+    plot: anime.Plot,
+    poster: anime.Poster
   }
   try {
     const res = axios.post(`/api/animes/`, payload)

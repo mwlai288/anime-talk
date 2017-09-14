@@ -11,4 +11,16 @@ class Api::AnimesController < ApplicationController
             animes: @animes
         }
     end
+
+    def create
+        @animes = Anime.create!(anime_params)
+        render json: {
+            animes: @animes
+        }
+    end
+
+    private
+    def anime_params
+        params.require(:anime).permit(:title, :plot, :poster)
+    end
 end
