@@ -9,7 +9,7 @@ const Nav = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 2.5%;
-  background-color rgb(212,175,55);
+  background-color: rgb(214,22,28);
   box-shadow: 0px 1px 6px black;
   a {
     text-decoration: none;
@@ -68,7 +68,7 @@ class NavBar extends Component {
     return (
       <Nav>
         <Link to="/">
-        <img src='https://i.imgur.com/0it2Jy6t.jpg' alt=''/>
+        <h2>Anime Talk</h2>
         </Link>
         <div>
           <Link to="/signup">Sign Up</Link>
