@@ -9,7 +9,7 @@ const Nav = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 2.5%;
-  background-color: rgba(2, 178, 208, 1);
+  background-color rgb(212,175,55);
   box-shadow: 0px 1px 6px black;
   a {
     text-decoration: none;
@@ -56,7 +56,7 @@ class NavBar extends Component {
       return (
         <Nav>
           <Link to="/">
-            <h1>Tunr</h1>
+            <h1>Anime Talk</h1>
           </Link>
           <div>
             <span>Signed In As: {this.state.user.email}</span>
@@ -68,7 +68,7 @@ class NavBar extends Component {
     return (
       <Nav>
         <Link to="/">
-          <h1>Anime Talk</h1>
+        <img src='https://i.imgur.com/0it2Jy6t.jpg' alt=''/>
         </Link>
         <div>
           <Link to="/signup">Sign Up</Link>

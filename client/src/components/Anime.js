@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
 import DeletePost from './DeletePost'
-
 import EditComment from './EditComment';
+import styled from 'styled-components';
 // import posts.Comments from './Comments';
 
+
+const TextBox = styled.div`
+background-color: rgba(236, 236, 214, .5); /* RGBA value */
+`
 class Anime extends Component {
     constructor(){
         super();
@@ -51,9 +55,9 @@ class Anime extends Component {
         const id = this.props.match.params.id    
         return (
             <div>
-              <h1>{this.state.animes.title}</h1>
-              <h3>Plot: </h3> 
-              <p>{this.state.animes.plot}</p>
+              <TextBox>{this.state.animes.title}</TextBox>
+              <TextBox>Plot: {this.state.animes.plot} </TextBox> 
+           
               <img src={this.state.animes.poster} alt=''/>
               {this.state.posts.map((post, i) => {
                 return <div index ={i}> {post.comment} 
