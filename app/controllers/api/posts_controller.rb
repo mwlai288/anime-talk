@@ -1,4 +1,5 @@
 class Api::PostsController < ApplicationController
+    before_action :authenticate_user!
     def index
          @anime = Anime.find(params[:anime_id])
          @posts = @anime.posts
@@ -14,6 +15,8 @@ class Api::PostsController < ApplicationController
    def create
     @animes = Anime.find(params[:anime_id])
     @post = @animes.posts.new(post_params)
+    @post.user_id = current_user.id
+    # @user = current_user.posts.new(post_params)
         if @post.save
         render json: @post
         else

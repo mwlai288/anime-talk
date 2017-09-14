@@ -1,4 +1,5 @@
 class Api::AnimesController < ApplicationController
+    before_action :authenticate_user!    
     def index 
         @animes = Anime.all
         render json: @animes

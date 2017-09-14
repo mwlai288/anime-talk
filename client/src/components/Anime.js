@@ -8,7 +8,14 @@ import styled from 'styled-components';
 
 
 const TextBox = styled.div`
-background-color: rgba(236, 236, 214, .5); /* RGBA value */
+background-color: rgba(236, 236, 214, .5);
+font-size: 25px;
+text-align: center;
+`
+
+const TitleStyle = styled.div`
+font-size: 30px;
+text-align: center;
 `
 class Anime extends Component {
     constructor(){
@@ -55,7 +62,7 @@ class Anime extends Component {
         const id = this.props.match.params.id    
         return (
             <div>
-              <TextBox>{this.state.animes.title}</TextBox>
+              <TitleStyle>{this.state.animes.title}</TitleStyle>
               <TextBox>Plot: {this.state.animes.plot} </TextBox> 
            
               <img src={this.state.animes.poster} alt=''/>
