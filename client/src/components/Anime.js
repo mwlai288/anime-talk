@@ -61,6 +61,9 @@ class Anime extends Component {
     render() {
         const id = this.props.match.params.id    
         return (
+        
+            
+        
             <div>
               <TitleStyle>{this.state.animes.title}</TitleStyle>
               <TextBox>Plot: {this.state.animes.plot} </TextBox> 
@@ -72,6 +75,8 @@ class Anime extends Component {
                 <DeletePost animeId = {this.props.match.params.id} postId = {post.id}/>
              </div> 
               })} 
+
+            
               <Link to={`/anime/${id}/posts`}><button>Add a comment</button></Link>
               
             </div>

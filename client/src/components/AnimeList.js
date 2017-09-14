@@ -30,9 +30,6 @@ class AnimeList extends Component {
 }
 
   render() {
-    if (this.state.error){
-      return <div>{this.state.error}</div>
-    }
     return (
       <div>
         <h1>Select an Anime</h1>
@@ -41,6 +38,8 @@ class AnimeList extends Component {
             <Link to={`/anime/${anime.id}`}>{anime.title}</Link> 
           </div>
         ))}
+         <p>Can't Find An Anime?</p>
+        <Link to="/search"><button>Search Here</button></Link>
       </div>
     );
   }

@@ -6,6 +6,7 @@ import AddComments from './components/AddComments';
 import EditComment from './components/EditComment'
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
+import SearchAnime from './components/SearchAnime'
 import { setAxiosDefaults } from './util';
 import NavBar from './components/NavBar';
 import styled from 'styled-components';
@@ -33,6 +34,7 @@ class App extends Component {
           <Route exact path="/anime/:id" component={Anime} />
           <Route exact path="/anime/:id/posts" component={AddComments} />
           <Route exact path="/anime/:animeId/posts/:id/edit" component={EditComment} />
+          <Route exact path="/search" component={SearchAnime} />
         </div>
         </Style>
       </Router>
