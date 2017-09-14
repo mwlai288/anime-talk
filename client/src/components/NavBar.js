@@ -20,6 +20,11 @@ const Nav = styled.div`
   }
 `;
 
+ const ImageStyle = styled.div`
+  width: 64px;
+  height: 64px;
+ `
+
 class NavBar extends Component {
   constructor() {
     super();
@@ -56,7 +61,7 @@ class NavBar extends Component {
       return (
         <Nav>
           <Link to="/">
-            <h1>Anime Talk</h1>
+           <h3>Anime Talk</h3>
           </Link>
           <div>
             <span>Signed In As: {this.state.user.email}</span>
@@ -67,10 +72,7 @@ class NavBar extends Component {
     }
     return (
       <Nav>
-        <Link to="/">
-        <h2>Anime Talk</h2>
-        </Link>
-        <div>
+       <div>
           <Link to="/signup">Sign Up</Link>
           <Link to="/signin">Sign In</Link>
         </div>
