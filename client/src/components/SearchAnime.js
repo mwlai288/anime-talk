@@ -12,11 +12,16 @@ class SearchAnime extends Component {
         search: ''
       }
     }
+    componentWillMount() {
+
+    }
 
     _searchAnimes = async (e) => {
       e.preventDefault();
       const search = this.state.search
-      const url= `http://www.omdbapi.com/?apikey=a799cd51&t=${search}`
+      const apiKey = process.env.REACT_APP_UPLOADPRESET
+      const url= `http://www.omdbapi.com/?apikey=${apiKey}&t=${search}`
+      console.log(url)
       try {
         const res = await axios.get(url, 
           {transformRequest: [(data, headers) => {
