@@ -6,12 +6,12 @@ import SignUp from './SignUp';
 import SignIn from './SignIn';
 
 const HomePagewrap = styled.div`
-display: flex;
+display: inline-flex;
 flex-wrap: wrap;
 img {
      width: 100%;
      max-height: 300px;
-     padding-left: 5px;
+     padding: 5px;
 `
 
 class AnimeList extends Component {

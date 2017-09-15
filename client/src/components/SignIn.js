@@ -47,7 +47,7 @@ _signIn = async (e) => {
            <input onChange={this._handleChange} type="text" name="password" value={this.state.password} />
          </div>
          <button>Sign In</button>
-         <Link to="/signup">Sign Up</Link>
+         <Link to="/signup"><button>Sign Up</button></Link>
        </form>
      </div>
    );

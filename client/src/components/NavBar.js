@@ -12,7 +12,6 @@ const Nav = styled.div`
   padding: 0 2.5%;
   background-image: url('https://i.imgur.com/454X3iT.png?2');
   background-size: contain;
-  box-shadow: 0px 1px 6px black;
   text-size: 25px;
   a {
     text-decoration: none;
@@ -23,6 +22,15 @@ const Nav = styled.div`
   }
 `;
 
+const TextDiv = styled.div `
+color: white;
+font-size: 30px;
+text-shadow: 2px 2px #C9AC07;
+`
+const LogOut = styled.div`
+color: white;
+text-shadow: 2px 2px #C9AC07;
+`
 class NavBar extends Component {
   constructor() {
     super();
@@ -60,11 +68,11 @@ class NavBar extends Component {
       return (
         <Nav>
           <Link to="/">
-            <h1>Anime Talk</h1>
+            <TextDiv>Anime Talk</TextDiv>
           </Link>
           <div>
-            <span>Signed In As: {this.state.user.email}</span>
-            <a href="#" onClick={this._logOut}> Log Out </a>
+            <span><TextDiv> Signed In As: {this.state.user.email} </TextDiv></span>
+             <LogOut a href="#" onClick={this._logOut}> Log Out </LogOut>
           </div>
         </Nav>
       );
@@ -72,7 +80,7 @@ class NavBar extends Component {
     return (
       <Nav>
         <Link to="/">
-        <h1>Anime Talk</h1>
+        <TextDiv>Anime Talk</TextDiv>
         </Link>
         <div>
           <Link to="/signup">Sign Up</Link>
