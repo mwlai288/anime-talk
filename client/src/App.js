@@ -6,7 +6,7 @@ import AddComments from './components/AddComments';
 import EditComment from './components/EditComment'
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
-import SearchAnime from './components/SearchAnime'
+import SearchAnime from './components/SearchAnime';
 import { setAxiosDefaults } from './util';
 import NavBar from './components/NavBar';
 import styled from 'styled-components';
@@ -20,7 +20,7 @@ class App extends Component {
   componentWillMount(){
     setAxiosDefaults();
   }
-  
+
   render() {
     return (
       <Router>

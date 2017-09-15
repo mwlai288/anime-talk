@@ -5,12 +5,15 @@ import styled from "styled-components";
 
 const Nav = styled.div`
   width: 95%;
+  height: 15vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 2.5%;
-  background-color: rgb(214,22,28);
+  background-image: url('https://i.imgur.com/454X3iT.png?2');
+  background-size: contain;
   box-shadow: 0px 1px 6px black;
+  text-size: 25px;
   a {
     text-decoration: none;
     margin: 0 5px;
@@ -49,6 +52,7 @@ class NavBar extends Component {
     const response = await axios.delete("/auth/sign_out");
     //Forces refresh of browser
     window.location.reload();
+    localStorage.clear();
   };
 
   render() {
@@ -68,7 +72,7 @@ class NavBar extends Component {
     return (
       <Nav>
         <Link to="/">
-        <h2>Anime Talk</h2>
+        <h1>Anime Talk</h1>
         </Link>
         <div>
           <Link to="/signup">Sign Up</Link>

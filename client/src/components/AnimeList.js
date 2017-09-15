@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components'
+import SignUp from './SignUp';
+import SignIn from './SignIn';
 
 const HomePagewrap = styled.div`
 display: flex;
 flex-wrap: wrap;
+img {
+     width: 100%;
+     max-height: 300px;
+     padding-left: 5px;
 `
-
 
 class AnimeList extends Component {
   constructor(){
@@ -37,18 +42,25 @@ class AnimeList extends Component {
 }
 
   render() {
+    if (localStorage['access-token'] )
+    {
     return (
       <div>
+      <p>Can't Find An Anime?</p>
+      <Link to="/search"><button>Search Here</button></Link>
         <h1>Select an Anime</h1>
         <HomePagewrap>{this.state.animes.map(anime => (
           <div key={anime.id}>
             <Link to={`/anime/${anime.id}`}><img src ={anime.poster} alt=''/></Link> 
           </div>
         ))}</HomePagewrap>
-         <p>Can't Find An Anime?</p>
-        <Link to="/search"><button>Search Here</button></Link>
       </div>
-    );
+    )
+      } else {
+        return <div> 
+        <h1>Pikachu says, "Please Sign Up or Sign In to continue."</h1>
+        </div>
+      }
   }
 }
 

@@ -16,7 +16,6 @@ class SearchAnime extends Component {
 
     }
 
-    
     _searchAnimes = async (e) => {
       e.preventDefault();
       const search = this.state.search

@@ -12,21 +12,30 @@ background-color: rgba(236, 236, 214, .5);
 font-size: 25px;
 text-align: center;
 `
-
-const TitleStyle = styled.div`
+const Container = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+`
+const TitleDiv = styled.div`
 font-size: 30px;
 text-align: center;
+display: flex;
+flex-direction: column;
 `
 const StyledPoster = styled.div`
 display: flex;
 justify-content: flex-end;
 `
-
-const StyledText = styled.div`
+const TitlePlot = styled.div`
 display: flex;
-justify-content: flex-start;
-flex-direction: row;
-flex-wrap: wrap;
+flex-direction: column;
+width: 400px;
+`
+const PlotDiv = styled.div`
+display: flex;
+flex-direction: column;
 `
 
 class Anime extends Component {
@@ -77,10 +86,14 @@ class Anime extends Component {
             
         
             <div>
-              <TitleStyle>{this.state.animes.title}</TitleStyle>
-              <StyledText>Plot: {this.state.animes.plot} </StyledText> 
-           
-              <StyledPoster><img src={this.state.animes.poster} alt=''/></StyledPoster>
+                <Container>
+          <TitlePlot>
+          <TitleDiv>{this.state.animes.title} </TitleDiv>
+          <PlotDiv>  Plot: {this.state.animes.plot} </PlotDiv>
+          </TitlePlot>
+          <StyledPoster><img src={this.state.animes.poster} alt=''/></StyledPoster> 
+              
+              </Container>
               {this.state.posts.map((post, i) => {
                 return <div index ={i}> {post.comment} 
                 <Link to={`/anime/${id}/posts/${post.id}/edit`}><button>Edit comment</button></Link>
