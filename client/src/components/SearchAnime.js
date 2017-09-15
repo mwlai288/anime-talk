@@ -20,7 +20,7 @@ class SearchAnime extends Component {
       e.preventDefault();
       const search = this.state.search
       const apiKey = process.env.REACT_APP_UPLOADPRESET
-      const url= `http://www.omdbapi.com/?apikey=${apiKey}&t=${search}`
+      const url= `https://www.omdbapi.com/?apikey=${apiKey}&t=${search}`
       console.log(url)
       try {
         const res = await axios.get(url, 
