@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 class componentName extends Component {
 
@@ -15,7 +16,7 @@ class componentName extends Component {
 
     return (
       <div>
-        <button onClick={this._handleDelete}>Delete</button>
+        <Link to="/anime/:animeId/posts/:id"><button onClick={this._handleDelete}>Delete</button></Link>
       </div>
     );
   }

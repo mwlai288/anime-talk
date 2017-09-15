@@ -35,9 +35,8 @@ class AddComments extends Component {
         return (
             <div>
                 <form>
-                    <div>
-                        
-                        <label htmlFor="comment">Comment Below </label>
+                    <div>           
+                      <label htmlFor="comment">Comment Below </label>
                       <p>{this.state.posts.comment}</p>
                         <input onChange={this._handleChange} type="text" name="comment" value={this.state.posts.comment} />
                     </div>

@@ -17,6 +17,18 @@ const TitleStyle = styled.div`
 font-size: 30px;
 text-align: center;
 `
+const StyledPoster = styled.div`
+display: flex;
+justify-content: flex-end;
+`
+
+const StyledText = styled.div`
+display: flex;
+justify-content: flex-start;
+flex-direction: row;
+flex-wrap: wrap;
+`
+
 class Anime extends Component {
     constructor(){
         super();
@@ -66,9 +78,9 @@ class Anime extends Component {
         
             <div>
               <TitleStyle>{this.state.animes.title}</TitleStyle>
-              <TextBox>Plot: {this.state.animes.plot} </TextBox> 
+              <StyledText>Plot: {this.state.animes.plot} </StyledText> 
            
-              <img src={this.state.animes.poster} alt=''/>
+              <StyledPoster><img src={this.state.animes.poster} alt=''/></StyledPoster>
               {this.state.posts.map((post, i) => {
                 return <div index ={i}> {post.comment} 
                 <Link to={`/anime/${id}/posts/${post.id}/edit`}><button>Edit comment</button></Link>

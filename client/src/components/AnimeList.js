@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import styled from 'styled-components'
+
+const HomePagewrap = styled.div`
+display: flex;
+flex-wrap: wrap;
+`
+
 
 class AnimeList extends Component {
   constructor(){
@@ -33,11 +40,11 @@ class AnimeList extends Component {
     return (
       <div>
         <h1>Select an Anime</h1>
-        {this.state.animes.map(anime => (
+        <HomePagewrap>{this.state.animes.map(anime => (
           <div key={anime.id}>
             <Link to={`/anime/${anime.id}`}><img src ={anime.poster} alt=''/></Link> 
           </div>
-        ))}
+        ))}</HomePagewrap>
          <p>Can't Find An Anime?</p>
         <Link to="/search"><button>Search Here</button></Link>
       </div>

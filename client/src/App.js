@@ -20,6 +20,7 @@ class App extends Component {
   componentWillMount(){
     setAxiosDefaults();
   }
+  
   render() {
     return (
       <Router>
