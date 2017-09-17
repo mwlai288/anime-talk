@@ -1,24 +1,22 @@
-# README
+# Anime Talk
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Anime Talk is a forum style website where user's can signup/login to talk about their favorite anime's.
 
-Things you may want to cover:
+WireFrames + ERD: https://i.imgur.com/DkTbiZD.jpg
 
-* Ruby version
+Trello: https://trello.com/b/Jhjxdpl5/ani-talk
 
-* System dependencies
+Future Development:
+- Add Authorization.
+- Add Admin capabilities.
+- Have topic threads with comments and replies.
+- Post photos.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Technologies Used:
+- Axios
+- Devise
+- Heroku
+- OMDBAPI 
+- Rails
+- React
+- Styled Components
