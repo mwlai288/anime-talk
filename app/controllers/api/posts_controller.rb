@@ -49,8 +49,6 @@ class Api::PostsController < ApplicationController
         @anime = Anime.find(params[:anime_id])
         @post = Post.find(params[:id])
         @post.update(post_params)
-    
-        # redirect_to api_anime_post_path(@post)
     end
     
 

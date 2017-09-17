@@ -38,6 +38,14 @@ display: flex;
 flex-direction: column;
 `
 
+const Buttons = styled.div`
+display: flex;
+flex-direction: row;
+`
+const PostSpace = styled.div`
+padding-bottom: 15px;
+`
+
 class Anime extends Component {
     constructor(){
         super();
@@ -81,27 +89,29 @@ class Anime extends Component {
 }
     render() {
         const id = this.props.match.params.id    
-        return (
-        
-            
-        
+        return (      
             <div>
-                <Container>
+              <Container>
           <TitlePlot>
           <TitleDiv>{this.state.animes.title} </TitleDiv>
           <PlotDiv>  Plot: {this.state.animes.plot} </PlotDiv>
           </TitlePlot>
           <StyledPoster><img src={this.state.animes.poster} alt=''/></StyledPoster> 
-              
               </Container>
+            <PostSpace>
               {this.state.posts.map((post, i) => {
-                return <div index ={i}> {post.comment} 
-                <Link to={`/anime/${id}/posts/${post.id}/edit`}><button>Edit comment</button></Link>
+            return <div index ={i}> {post.comment} 
+         
+                
+                <Buttons>
+                <Link to={`/anime/${id}/posts/${post.id}/edit`}><button>Edit comment</button></Link> 
                 <DeletePost animeId = {this.props.match.params.id} postId = {post.id}/>
-             </div> 
+                </Buttons>
+            </div> 
               })} 
 
-            
+              </PostSpace>
+
               <Link to={`/anime/${id}/posts`}><button>Add a comment</button></Link>
               
             </div>

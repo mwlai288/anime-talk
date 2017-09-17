@@ -40,7 +40,7 @@ class AddComments extends Component {
                       <p>{this.state.posts.comment}</p>
                         <input onChange={this._handleChange} type="text" name="comment" value={this.state.posts.comment} />
                     </div>
-                    <button onClick={this._newComment}>Submit</button>
+                    <Link to={`/anime/${id}`} button onClick={this._newComment}> Submit  </Link>
                 </form>
                 <br />
                 

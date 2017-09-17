@@ -16,7 +16,7 @@ class componentName extends Component {
 
     return (
       <div>
-        <Link to="/anime/:animeId/posts/:id"><button onClick={this._handleDelete}>Delete</button></Link>
+        <Link to="/anime/:animeId/"><button onClick={this._handleDelete}>Delete</button></Link>
       </div>
     );
   }

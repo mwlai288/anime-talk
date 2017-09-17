@@ -48,7 +48,8 @@ class AnimeList extends Component {
       <div>
       <p>Can't Find An Anime?</p>
       <Link to="/search"><button>Search Here</button></Link>
-        <h1>Select an Anime</h1>
+        <h1> Welcome to Anime Talk.</h1>
+         <p>Select an Anime and start discussing what you like and do not like about it.</p>
         <HomePagewrap>{this.state.animes.map(anime => (
           <div key={anime.id}>
             <Link to={`/anime/${anime.id}`}><img src ={anime.poster} alt=''/></Link> 
