@@ -40,11 +40,11 @@ _signIn = async (e) => {
        <form onSubmit={this._signIn}>
          <div>
            <label htmlFor="email">E-mail: </label>
-           <input onChange={this._handleChange} type="text" name="email" value={this.state.email} />
+           <input onChange={this._handleChange} type="password" name="email" value={this.state.email} />
          </div>
          <div>
            <label htmlFor="password">Password: </label>
-           <input onChange={this._handleChange} type="text" name="password" value={this.state.password} />
+           <input onChange={this._handleChange} type="password" name="password" value={this.state.password} />
          </div>
          <button>Sign In</button>
          <Link to="/signup"><button>Sign Up</button></Link>
