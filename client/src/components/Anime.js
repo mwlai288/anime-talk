@@ -14,7 +14,7 @@ text-align: center;
 `
 const Container = styled.div`
 display: flex;
-flex-direction: row;
+flex-direction: column;
 justify-content: center;
 align-items: center;
 `
@@ -22,20 +22,21 @@ const TitleDiv = styled.div`
 font-size: 30px;
 text-align: center;
 display: flex;
-flex-direction: column;
+justify-content: center;
 `
 const StyledPoster = styled.div`
 display: flex;
-justify-content: flex-end;
+flex-direction: row;
 `
 const TitlePlot = styled.div`
 display: flex;
 flex-direction: column;
 width: 400px;
+flex-wrap: wrap;
 `
 const PlotDiv = styled.div`
 display: flex;
-flex-direction: column;
+flex-direction: row;
 `
 
 const Buttons = styled.div`
@@ -92,11 +93,11 @@ class Anime extends Component {
         return (      
             <div>
               <Container>
-          <TitlePlot>
-          <TitleDiv>{this.state.animes.title} </TitleDiv>
+          <div>
+          <TitleDiv> {this.state.animes.title} </TitleDiv>
           <PlotDiv>  Plot: {this.state.animes.plot} </PlotDiv>
-          </TitlePlot>
-          <StyledPoster><img src={this.state.animes.poster} alt=''/></StyledPoster> 
+          </div>
+          <div><img src={this.state.animes.poster} alt=''/></div> 
               </Container>
             <PostSpace>
               {this.state.posts.map((post, i) => {
