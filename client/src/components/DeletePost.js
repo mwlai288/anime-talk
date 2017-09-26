@@ -10,12 +10,13 @@ class componentName extends Component {
     console.log(`/api/animes/${animeId}/posts/${postsId}`)
     const response = await axios.delete(`/api/animes/${animeId}/posts/${postsId}`)
     await this.setState({posts: response.posts})
+    this.props._fetchPost();
 }
   render() {
 
     return (
       <div>
-        <Link to="/anime/:animeId/"><button onClick={this._handleDelete}>Delete</button></Link>
+        <button onClick={() => {this._handleDelete()}}>Delete</button>
       </div>
     );
   }
