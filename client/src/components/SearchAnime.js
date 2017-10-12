@@ -66,7 +66,7 @@ _handleChange = (e) => {
     return (
 
       <div>
-        <h2>Search for an Anime</h2>  
+        <h2>Search for an Anime</h2>  (won't work anymore because I cancelled the donations for the API key I was using.)
                       
       <form>
         <div>

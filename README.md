@@ -8,6 +8,10 @@ WireFrames + ERD: https://i.imgur.com/DkTbiZD.jpg
 
 Trello: https://trello.com/b/Jhjxdpl5/ani-talk
 
+
+*** SEARCH FUNCTION WON'T WORK, CANCELLED MONTHLY DONATION FOR API KEY ***
+
+
 Future Development:
 - Add Authorization.
 - Add Admin capabilities.
