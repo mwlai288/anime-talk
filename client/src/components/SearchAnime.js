@@ -85,7 +85,7 @@ _handleChange = (e) => {
            
             <button onClick={() => this._addAnime(anime)}>Add Anime</button>
             <Link to= "/"><button>Back To Anime</button></Link>
-            </div>
+          </div>
            
         )
         
