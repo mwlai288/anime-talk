@@ -52,7 +52,7 @@ class AnimeList extends Component {
          <p>Select an Anime and start discussing what you like and do not like about it.</p>
         <HomePagewrap>{this.state.animes.map(anime => (
           <div key={anime.id}>
-            <Link to={`/anime/${anime.id}`}><img src ={anime.poster} alt=''/></Link> 
+            <Link to={`/anime/${anime.id}`}><img src={`https://image.tmdb.org/t/p/w1000${anime.poster_path}`} alt=''/></Link> 
           </div>
         ))}</HomePagewrap>
       </div>

@@ -12,40 +12,59 @@ class SearchAnime extends Component {
         search: ''
       }
     }
-    componentWillMount() {
-
-    }
-
-    _searchAnimes = async (e) => {
-      e.preventDefault();
+    
+    async componentDidMount() {
       const search = this.state.search
-      const apiKey = process.env.REACT_APP_UPLOADPRESET
-      const url= `https://www.omdbapi.com/?apikey=${apiKey}&t=${search}`
-      console.log(url)
+      const url = (`https://api.themoviedb.org/3/search/tv?api_key=bc56e0122b5c08d32761ffa334304bd2&query=Naruto`)
+      
       try {
-        const res = await axios.get(url, 
-          {transformRequest: [(data, headers) => {
-            delete headers['access-token']
-            delete headers['uid']
-            delete headers['client']
-            delete headers['expiry']
-            delete headers['token-type']
-            delete headers.common
-            return data;
-      }]
-    });
-    await this.setState({animes: [res.data]})
-  } catch (err) {
-      console.log(err);
+          const res = await axios.get(url, 
+            { transformRequest: [(data, headers) => {
+              delete headers['access-token']
+              delete headers['uid']
+              delete headers['client']
+              delete headers['expiry']
+              delete headers['token-type']
+              delete headers.common
+              return data;
+            }]
+          });
+          await this.setState({animes: res.data.results})
+      } catch (err) {
+          console.log(err);
+      }
   }
-}
+
+//   _searchAnimes = async (e) => {
+//       e.preventDefault();
+//       const search = this.state.search
+//       const apiKey = process.env.REACT_APP_UPLOADPRESET
+//       const url= `https://www.omdbapi.com/?apikey=${apiKey}&t=${search}`
+//       console.log(url)
+//       try {
+//         const res = await axios.get(url, 
+//           {transformRequest: [(data, headers) => {
+//             delete headers['access-token']
+//             delete headers['uid']
+//             delete headers['client']
+//             delete headers['expiry']
+//             delete headers['token-type']
+//             delete headers.common
+//             return data;
+//       }]
+//     });
+//     await this.setState({animes: [res.data]})
+//   } catch (err) {
+//       console.log(err);
+//   }
+// }
 
 _addAnime = (anime) => {
   const id = this.props.match.params.id
   const payload ={
-    title: anime.Title,
-    plot: anime.Plot,
-    poster: anime.Poster
+    title: anime.name,
+    plot: anime.overview,
+    poster_path: anime.poster_path
   }
   try {
     const res = axios.post(`/api/animes/`, payload)
@@ -79,10 +98,10 @@ _handleChange = (e) => {
       {this.state.animes.map((anime) => {
         return (
           <div>
-          <h1>{anime.Title}</h1>
-          <h1>Plot: {anime.Plot}</h1>
-          <img src={anime.Poster} alt=''/>
-           
+          <h1>{anime.name}</h1>
+          <h1>Plot: {anime.overview}</h1>
+          <img src={`https://image.tmdb.org/t/p/w1000${anime.poster_path}`} alt="No Image Available" />
+          
             <button onClick={() => this._addAnime(anime)}>Add Anime</button>
             <Link to= "/"><button>Back To Anime</button></Link>
           </div>

@@ -94,10 +94,10 @@ class Anime extends Component {
             <div>
               <Container>
           <div>
-          <TitleDiv> {this.state.animes.title} </TitleDiv>
-          <PlotDiv>  Plot: {this.state.animes.plot} </PlotDiv>
+          <TitleDiv> {this.state.animes.name} </TitleDiv>
+          <PlotDiv>  Plot: {this.state.animes.overview} </PlotDiv>
           </div>
-          <div><img src={this.state.animes.poster} alt=''/></div> 
+          <div><img src={`https://image.tmdb.org/t/p/w1000${this.state.anime.poster_path}`} alt=''/></div> 
               </Container>
             <PostSpace>
               {this.state.posts.map((post, i) => {
