@@ -13,51 +13,50 @@ class SearchAnime extends Component {
       }
     }
     
-    async componentDidMount() {
-      const search = this.state.search
-      const url = (`https://api.themoviedb.org/3/search/tv?api_key=bc56e0122b5c08d32761ffa334304bd2&query=Naruto`)
-      
-      try {
-          const res = await axios.get(url, 
-            { transformRequest: [(data, headers) => {
-              delete headers['access-token']
-              delete headers['uid']
-              delete headers['client']
-              delete headers['expiry']
-              delete headers['token-type']
-              delete headers.common
-              return data;
-            }]
-          });
-          await this.setState({animes: res.data.results})
-      } catch (err) {
-          console.log(err);
-      }
-  }
+  //   async componentDidMount() {
+  //     const search = this.state.search
+  //     // const api_key = process.env.API_KEY
+  //     const url = `https://api.themoviedb.org/3/search/tv?api_key=bc56e0122b5c08d32761ffa334304bd2&query=${search}`
+  //     try {
+  //         const res = await axios.get(url, 
+  //           { transformRequest: [(data, headers) => {
+  //             delete headers['access-token']
+  //             delete headers['uid']
+  //             delete headers['client']
+  //             delete headers['expiry']
+  //             delete headers['token-type']
+  //             delete headers.common
+  //             return data;
+  //           }]
+  //         });
+  //         await this.setState({animes: res.data.results})
+  //     } catch (err) {
+  //         console.log(err);
+  //     }
+  // }
 
-//   _searchAnimes = async (e) => {
-//       e.preventDefault();
-//       const search = this.state.search
-//       const apiKey = process.env.REACT_APP_UPLOADPRESET
-//       const url= `https://www.omdbapi.com/?apikey=${apiKey}&t=${search}`
-//       console.log(url)
-//       try {
-//         const res = await axios.get(url, 
-//           {transformRequest: [(data, headers) => {
-//             delete headers['access-token']
-//             delete headers['uid']
-//             delete headers['client']
-//             delete headers['expiry']
-//             delete headers['token-type']
-//             delete headers.common
-//             return data;
-//       }]
-//     });
-//     await this.setState({animes: [res.data]})
-//   } catch (err) {
-//       console.log(err);
-//   }
-// }
+  _searchAnimes = async (e) => {
+      e.preventDefault();
+      const search = this.state.search
+      const url= `https://api.themoviedb.org/3/search/tv?api_key=${process.env.REACT_APP_UPLOADPRESET}&language=en-US&query=${search}`
+      console.log(url)
+      try {
+        const res = await axios.get(url, 
+          {transformRequest: [(data, headers) => {
+            delete headers['access-token']
+            delete headers['uid']
+            delete headers['client']
+            delete headers['expiry']
+            delete headers['token-type']
+            delete headers.common
+            return data;
+      }]
+    });
+    await this.setState({animes: [res.data.results]})
+  } catch (err) {
+      console.log(err);
+  }
+}
 
 _addAnime = (anime) => {
   const id = this.props.match.params.id
@@ -78,8 +77,10 @@ _handleChange = (e) => {
   newState[e.target.name] = e.target.value
   this.setState(newState)
 }
-
   render() {
+
+    const POSTER_PATH = 'http://image.tmdb.org/t/p/w150';
+
     const id = this.props.match.params.id
     // console.log(this.state.animes)
     return (
@@ -97,10 +98,10 @@ _handleChange = (e) => {
       <h2>Results</h2>
       {this.state.animes.map((anime) => {
         return (
-          <div>
+          <div key={anime.id}>
           <h1>{anime.name}</h1>
           <h1>Plot: {anime.overview}</h1>
-          <img src={`https://image.tmdb.org/t/p/w1000${anime.poster_path}`} alt="No Image Available" />
+          <img src ={`${POSTER_PATH}${anime.poster_path}`} alt="No Image Available" />
           
             <button onClick={() => this._addAnime(anime)}>Add Anime</button>
             <Link to= "/"><button>Back To Anime</button></Link>
